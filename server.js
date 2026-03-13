@@ -133,6 +133,10 @@ app.get('/', (req, res) => {
 });
 
 // --- Start ---
-app.listen(PORT, () => {
-  console.log(`🌙 Lunar backend running on port ${PORT}`);
-});
+if (process.env.NODE_ENV !== 'production') {
+  app.listen(PORT, () => {
+    console.log(`🌙 Lunar backend running locally on port ${PORT}`);
+  });
+}
+
+export default app;
